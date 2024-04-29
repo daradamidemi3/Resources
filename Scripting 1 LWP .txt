@@ -1,0 +1,182 @@
+
+
+BASIC LINUX COMMANDS
+
+cal - Displaying Calendar of the current month
+date - Displaying current date and time
+pwd - print working directory
+cd  - to navigate between locations
+exit - To end terminal/ terminate ssh sessions
+cat - Displays file content
+mkdir - creates directories/ folder
+
+            - echo "Hello World"
+            - cal
+            - cd /home/etc
+
+hostname - customises the server hostname
+hostname class2linuxdemo
+hostnamectl set-hosname class2linuxdemo
+cp  - copy files
+
+File Commands and Text Editors in LINUX:
+touch - creates a blank file
+vim -
+nano  - opens up/ Creates a new file for editing
+vi    - opens up/ Creates a new file for editing
+
+cat system.file
+
+Piping Commands  (|) - Allows output for specific command to function as input for another
+grep - sort 
+
+ls | grep doc
+ls >> output.txt
+cat output.txt
+echo "hello world" | cat >> output.txt (appends text to output.txt)
+echo "hello world" | cat > output.txt (overites output.txt)
+
+Reading - Viewing File Content 
+  cat fileName 
+  cat -n test 
+  head fileName = display the 1st 10 lines of a file
+  head -5 fileName = display the 1st 5 lines of a file
+  tail fileName = display the last 10 lines of a file
+  tail -5 fileName = display the last 5 lines of a file 
+  tail -15 fileName = display the last 15 lines of a file
+  less fileName =
+
+  Deleting Files and Directories 
+  rm - Deletes files 
+  rm -rf - recursive 
+  rmdir 
+
+  mv -  Rename from Source to Destination Files/ Directories 
+
+  File/ Directories:
+  r - read 
+  w - write
+  x - execute
+
+  user      group       others
+
+d rwx        r-x         r-x.      2 ec2-user ec2-user   55 Apr 24 20:35 abdul
+d rwx        rwx         r-x.      2 ec2-user ec2-user    6 Apr 19 20:47 braz
+d rwx        rwx         r-x.      3 ec2-user ec2-user   20 Apr 19 21:00 congo
+- rw-        r--         r--.      1 ec2-user ec2-user   29 Apr 19 19:54 daisies.py
+- rw-        r--         r--.      1 ec2-user ec2-user 1675 Apr 19 21:24 drakes.log
+
+d r-x       r-x         ---. 3 root root 124 Apr 19 21:53
+
+d rwx       r-x          r-x. 2 root root 6 Apr 24 20:54 /common
+
+d rwx       r-x          rwx. 2 root root 6 Apr 24 21:01 /common
+
+chmod - change permissions
+sudo chmod g-w /common/daisies.py
+chmod 400
+
+chown - change ownership
+passwd - password user 
+
+
+
+LINUX SHELL SCRIPTING
+
+Hybrid - 
+
+what is a shell:
+  a SHELL is a program that interpretes commands to the OS
+  A shell is an interpreter. 
+
+Examples:
+pwd 
+ls
+
+Bourne Shell (sh)
+- Developed by Stephen Bourne,
+- Also known as “Standard Shel
+- Most popular and present on all Unix and Linux distributions
+
+Boune Again Shell (bash)
+- This is the most powerful Shell
+- Called superset of the Bourne shell,
+- A set of add-ons and plug- ins.
+
+Korn Shell (ksh)
+Developed by David Korn, also from Bell Labs, 
+it’s a superset derived from sh, which means it has all 
+features that sh does and also a bunch of improvements. 
+As it is 100% compatible with sh, it is taking over a lot 
+of shell programers and users
+
+Calling Out your Defaul Shells:
+echo $SHELL 
+cat /etc/shells 
+
+Naming Conventions:
+bash_shell_script: -- hello.sh  /  boom.sc 
+java_code:   -- deploy.java 
+python_code: -- hello_world.py 
+yaml_codes:  --  app.yml 
+xml_code:  -- app.xml 
+
+Shell Scripts Examples: All shell scripts start with a definition of the interpreter 
+
+#!/bin/bash
+echo "Hello World"
+echo "It is a Beautiful Day, this"
+date
+echo "Do have a pleasant time out"
+
+How to run your script:
+For file to run as a script, it must have executable permissions 
+chmod +x hello.sh
+    user    group   others
+-    rwx     r-x     r-x      . 1 ec2-user ec2-user 141 Apr 26 20:24 hello.sh
+      7       5       5
+r - 4
+w - 2
+x - 1
+
+- rwx    rwx    rwx      . 1 ec2-user ec2-user 141 Apr 26 20:24 hello.sh
+
+- rwx    r--    r--      . 1 ec2-user ec2-user 141 Apr 26 20:24 hello.sh
+
+shebang - for defining your shell within scripts 
+
+#!/bin/bash   
+echo "Devops is made up of component building blocks"
+echo "With constant inputs, the top is always at reach"
+echo "This message is from"
+whoami
+date 
+
+Making your scripts/code easily understood and re-usable.
+1. Maintain best naming convention 
+    monitor_servers.sh 
+    monitor_servers.py 
+    deploy_app.java 
+    mongo_db.sh   
+
+
+2. Use comments
+    Comments explains the use and use cases including 
+      requirements needed in running scripts.
+  #!/bin/bash
+echo single line comment starts
+# date
+date
+# This script can be run in any Linux distribution.
+# Examples of Linux distribution are
+# ubuntu, redhat, centos
+# This script will greet and authenticate users.
+# Authenticated users can access their accounts and execute transactions.
+# This is class 27 learning comments and best practices in scripting.
+# A single line comment in bash shell scripting start with a #.
+echo single line comment ends.
+
+ single line comment:
+  A single line comment in bash shell scripting start with a #
+ multi-line comment:
+  A multi line comment in bash shell scripting start with a <<.
