@@ -10,7 +10,7 @@
   scp -i <name of the created file in 2> target/maven-web-app.war ec2-user@57.13.45.37:/opt/tomcat9/webapps
 
 NOTE: syntax
-scp -i <name of the created file in 2> target/maven-<war file> ec2-user@<tomcat server IP>:/opt/tomcat9/webapps
+scp -i <name of the created file in 2> target/< .war file > ec2-user@<tomcat server IP>:/opt/tomcat9/webapps
 
 4. Change privilege of the tomcat.pem in 2 to 400:
    chmod 400
